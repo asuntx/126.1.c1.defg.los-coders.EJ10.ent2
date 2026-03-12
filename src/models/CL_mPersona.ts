@@ -1,35 +1,27 @@
-import Cl_mIngreso from "./Cl_mIngreso.js";
 export default class Cl_mPersona {
-  private acIngresos: number;
-  private conPersona: number;
-  private menor: number;
+  private _nombre: string = "";
+  private _ingreso: number = 0;
 
-  constructor() {
-    this.acIngresos = 0;
-    this.conPersona = 0;
-    this.menor = 0;
-  }
-
-  procesarIngreso(ing: Cl_mIngreso): void {
-    this.conPersona++;
-    this.acIngresos += ing.ingreso;
-    if (this.conPersona === 1) {
-      this.menor = ing.ingreso;
-    } else if (ing.ingreso < this.menor) {
-      this.menor = ing.ingreso;
-    }
+  constructor(
+    { nombre, ingreso }: { nombre: string; ingreso: number } = {
+      nombre: "",
+      ingreso: 0,
+    },
+  ) {
+    this.nombre = nombre;
+    this.ingreso = ingreso;
   }
 
-  get promedioIngresos(): number {
-    if (this.conPersona > 0) {
-      return this.acIngresos / this.conPersona;
-    }
-    return 0;
+  set nombre(nombre: string) {
+    this._nombre = nombre;
   }
-  get menorIngreso(): number {
-    return this.menor;
+  get nombre(): string {
+    return this._nombre;
   }
-  get contPersonas(): number {
-    return this.conPersona;
+  set ingreso(ingreso: number) {
+    this._ingreso = +ingreso;
+  }
+  get ingreso(): number {
+    return this._ingreso;
   }
 }

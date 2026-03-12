@@ -9,33 +9,37 @@
 
 <body>
   <script type="module">
-    import cPersona from "./dist/controllers/Cl_cPersona.js";
-    new cPersona();
+    import cIngreso from "./dist/controllers/Cl_cIngreso.js";
+    new cIngreso();
   </script>
+
   <div id="body">
-    <section id="ingreso" hidden>
+    <section id="persona" hidden>
       <div>
-        <h5 id="ingreso_lblIngreso">Procesar Ingreso</h5>
+        <h5 id="persona_lblPersona">Procesar Persona</h5>
       </div>
       <div>
         <label>Nombre:
-          <input type="text" id="ingreso_inNombre" placeholder="Ej: Ana">
+          <input type="text" id="persona_inNombre" placeholder="Ej: Ana">
         </label>
       </div>
       <div>
         <label>Ingreso:
-          <input type="number" id="ingreso_inIngreso" placeholder="Ej: 100">
+          <input type="number" id="persona_inIngreso" placeholder="Ej: 100">
         </label>
       </div>
       <div>
-        <button id="ingreso_btCancelar">Cancelar</button>
-        <button id="ingreso_btAceptar">Aceptar</button>
+        <button id="persona_btCancelar">Cancelar</button>
+        <button id="persona_btAceptar">Aceptar</button>
       </div>
     </section>
+    
     <hr>
+    
     <div style="margin-bottom: 20px;">
-      <button id="body_btNuevoIngreso">Nuevo Ingreso</button>
+      <button id="body_btNuevoIngreso">Nueva Persona</button>
     </div>
+    
     <div>
       Ingreso promedio: <span id="body_lblPromedio">0</span>$
     </div>

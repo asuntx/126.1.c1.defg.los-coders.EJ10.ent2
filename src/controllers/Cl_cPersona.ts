@@ -1,20 +1,32 @@
 import Cl_mPersona from "../models/Cl_mPersona.js";
-import Cl_vPersona from "../views/Cl_vPersona.js";
-import Cl_cIngresos from "./Cl_cIngresos.js";
+import vista from "../views/Cl_vPersona.js";
+
 export default class Cl_cPersona {
-  private mPersona: Cl_mPersona = new Cl_mPersona();
-  private vPersona: Cl_vPersona = new Cl_vPersona();
-  constructor() {
-    this.vPersona.btNuevoIngreso.onclick = () => this.procesarIngreso();
+  private vista = new vista();
+  callback: (persona: Cl_mPersona | null) => void;
+
+  constructor({
+    callback,
+  }: {
+    callback: (persona: Cl_mPersona | null) => void;
+  }) {
+    this.callback = callback;
+    this.vista.btCancelar.onclick = () => this.btCancelarOnClick();
+    this.vista.btAceptar.onclick = () => this.btAceptarOnClick();
   }
-  procesarIngreso(): void {
-    new Cl_cIngresos({
-      callback: (ingreso) => {
-        if (ingreso) {
-          this.mPersona.procesarIngreso(ingreso);
-          this.vPersona.reportar({ persona: this.mPersona });
-        }
-      },
-    });
+
+  btCancelarOnClick() {
+    this.callback(null);
+    this.vista.ocultar();
+  }
+
+  btAceptarOnClick() {
+    this.callback(
+      new Cl_mPersona({
+        nombre: this.vista.nombre,
+        ingreso: this.vista.ingreso,
+      }),
+    );
+    this.vista.ocultar();
   }
 }

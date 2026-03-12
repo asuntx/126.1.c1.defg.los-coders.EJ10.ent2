@@ -1,27 +1,39 @@
-import Cl_mPersona from "../models/Cl_mPersona.js";
-
 export default class Cl_vPersona {
-  lblPromedio: HTMLLabelElement;
-  lblMenor: HTMLLabelElement;
-  lblContPersonas: HTMLLabelElement;
-  btNuevoIngreso: HTMLButtonElement;
+  inNombre: HTMLInputElement;
+  inIngreso: HTMLInputElement;
+  btCancelar: HTMLButtonElement;
+  btAceptar: HTMLButtonElement;
+  vista: HTMLElement;
+
   constructor() {
-    this.btNuevoIngreso = document.getElementById(
-      "body_btNuevoIngreso",
+    this.vista = document.getElementById("persona") as HTMLElement;
+    this.inNombre = document.getElementById(
+      "persona_inNombre",
+    ) as HTMLInputElement;
+    this.inIngreso = document.getElementById(
+      "persona_inIngreso",
+    ) as HTMLInputElement;
+    this.btCancelar = document.getElementById(
+      "persona_btCancelar",
     ) as HTMLButtonElement;
-    this.lblPromedio = document.getElementById(
-      "body_lblPromedio",
-    ) as HTMLLabelElement;
-    this.lblMenor = document.getElementById(
-      "body_lblMenor",
-    ) as HTMLLabelElement;
-    this.lblContPersonas = document.getElementById(
-      "body_lblContPersonas",
-    ) as HTMLLabelElement;
+    this.btAceptar = document.getElementById(
+      "persona_btAceptar",
+    ) as HTMLButtonElement;
+    this.mostrar();
   }
-  reportar({ persona }: { persona: Cl_mPersona }): void {
-    this.lblPromedio!.innerHTML = `${persona.promedioIngresos}`;
-    this.lblMenor!.innerHTML = `${persona.menorIngreso}`;
-    this.lblContPersonas!.innerHTML = `${persona.contPersonas}`;
+
+  get nombre(): string {
+    return this.inNombre.value;
+  }
+  get ingreso(): number {
+    return +this.inIngreso.value;
+  }
+  mostrar(): void {
+    if (this.vista === null) return;
+    this.vista.hidden = false;
+  }
+  ocultar(): void {
+    if (this.vista === null) return;
+    this.vista.hidden = true;
   }
 }

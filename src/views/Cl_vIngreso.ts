@@ -1,37 +1,29 @@
+import Cl_mIngreso from "../models/Cl_mIngreso.js";
+
 export default class Cl_vIngreso {
-  inNombre: HTMLInputElement;
-  inIngreso: HTMLInputElement;
-  btCancelar: HTMLButtonElement;
-  btAceptar: HTMLButtonElement;
-  vista: HTMLElement;
+  lblPromedio: HTMLLabelElement;
+  lblMenor: HTMLLabelElement;
+  lblContPersonas: HTMLLabelElement;
+  btNuevoIngreso: HTMLButtonElement;
+
   constructor() {
-    this.vista = document.getElementById("ingreso") as HTMLElement;
-    this.inNombre = document.getElementById(
-      "ingreso_inNombre",
-    ) as HTMLInputElement;
-    this.inIngreso = document.getElementById(
-      "ingreso_inIngreso",
-    ) as HTMLInputElement;
-    this.btCancelar = document.getElementById(
-      "ingreso_btCancelar",
+    this.btNuevoIngreso = document.getElementById(
+      "body_btNuevoIngreso",
     ) as HTMLButtonElement;
-    this.btAceptar = document.getElementById(
-      "ingreso_btAceptar",
-    ) as HTMLButtonElement;
-    this.mostrar();
+    this.lblPromedio = document.getElementById(
+      "body_lblPromedio",
+    ) as HTMLLabelElement;
+    this.lblMenor = document.getElementById(
+      "body_lblMenor",
+    ) as HTMLLabelElement;
+    this.lblContPersonas = document.getElementById(
+      "body_lblContPersonas",
+    ) as HTMLLabelElement;
   }
-  get nombre(): string {
-    return this.inNombre.value;
-  }
-  get ingreso(): number {
-    return +this.inIngreso.value;
-  }
-  mostrar(): void {
-    if (this.vista === null) return;
-    this.vista.hidden = false;
-  }
-  ocultar(): void {
-    if (this.vista === null) return;
-    this.vista.hidden = true;
+
+  reportar({ ingreso }: { ingreso: Cl_mIngreso }): void {
+    this.lblPromedio.innerHTML = `${ingreso.promedioIngresos}`;
+    this.lblMenor.innerHTML = `${ingreso.menorIngreso}`;
+    this.lblContPersonas.innerHTML = `${ingreso.contPersonas}`;
   }
 }
