@@ -25,6 +25,7 @@ export default class Cl_cPersona {
       new Cl_mPersona({
         nombre: this.vista.nombre,
         ingreso: this.vista.ingreso,
+        cedula: this.vista.cedula,
       }),
     );
     this.vista.ocultar();

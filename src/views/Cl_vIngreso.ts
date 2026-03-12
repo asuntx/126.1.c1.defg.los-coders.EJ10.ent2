@@ -5,6 +5,7 @@ export default class Cl_vIngreso {
   lblMenor: HTMLLabelElement;
   lblContPersonas: HTMLLabelElement;
   btNuevoIngreso: HTMLButtonElement;
+  lblMayor: HTMLLabelElement;
 
   constructor() {
     this.btNuevoIngreso = document.getElementById(
@@ -19,11 +20,16 @@ export default class Cl_vIngreso {
     this.lblContPersonas = document.getElementById(
       "body_lblContPersonas",
     ) as HTMLLabelElement;
+    this.lblMayor = document.getElementById(
+      "body_lblMayor"
+    ) as HTMLLabelElement
+
   }
 
   reportar({ ingreso }: { ingreso: Cl_mIngreso }): void {
-    this.lblPromedio.innerHTML = `${ingreso.promedioIngresos}`;
-    this.lblMenor.innerHTML = `${ingreso.menorIngreso}`;
+    this.lblPromedio.innerHTML = `${ingreso.ingresoPromedio}`;
+    this.lblMenor.innerHTML = `${ingreso.ingresoMenor}`;
     this.lblContPersonas.innerHTML = `${ingreso.contPersonas}`;
+    this.lblMayor.innerHTML = `${ingreso.nombreMayor}`
   }
 }
