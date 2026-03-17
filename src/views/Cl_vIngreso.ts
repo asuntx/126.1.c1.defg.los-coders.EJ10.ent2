@@ -3,7 +3,7 @@ import Cl_mIngreso from "../models/Cl_mIngreso.js";
 export default class Cl_vIngreso {
   lblPromedio: HTMLLabelElement;
   lblMenor: HTMLLabelElement;
-  lblContPersonas: HTMLLabelElement;
+  lblRegistrosProcesados: HTMLLabelElement;
   btNuevoIngreso: HTMLButtonElement;
   lblMayor: HTMLLabelElement;
 
@@ -17,19 +17,18 @@ export default class Cl_vIngreso {
     this.lblMenor = document.getElementById(
       "body_lblMenor",
     ) as HTMLLabelElement;
-    this.lblContPersonas = document.getElementById(
-      "body_lblContPersonas",
+    this.lblRegistrosProcesados = document.getElementById(
+      "body_lblRegistrosProcesados",
     ) as HTMLLabelElement;
     this.lblMayor = document.getElementById(
-      "body_lblMayor"
-    ) as HTMLLabelElement
-
+      "body_lblMayor",
+    ) as HTMLLabelElement;
   }
 
   reportar({ ingreso }: { ingreso: Cl_mIngreso }): void {
-    this.lblPromedio.innerHTML = `${ingreso.ingresoPromedio}`;
-    this.lblMenor.innerHTML = `${ingreso.ingresoMenor}`;
-    this.lblContPersonas.innerHTML = `${ingreso.contPersonas}`;
-    this.lblMayor.innerHTML = `${ingreso.nombreMayor}`
+    this.lblPromedio!.innerHTML = `${ingreso.ingresoPromedio}`;
+    this.lblMenor!.innerHTML = `${ingreso.ingresoMenor}`;
+    this.lblRegistrosProcesados!.innerHTML = `${ingreso.contPersonas}`;
+    this.lblMayor!.innerHTML = `${ingreso.nombreMayor}`;
   }
 }

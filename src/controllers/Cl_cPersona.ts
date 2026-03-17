@@ -1,3 +1,11 @@
+// INGRESOS PERSONAS
+// Dado el nombre y el ingreso de varias personas.
+//  Determinar e imprimir: el monto del ingreso menor y el ingreso promedio.
+// Se dispone de los siguientes datos de varias personas: (nombre, ingreso) (Mary, 150),
+// (José, 135), (Carlos, 160), (Pedro, 75)
+// Monto del ingreso menor: 75$
+// Ingreso promedio: 130$
+
 import Cl_mPersona from "../models/Cl_mPersona.js";
 import vista from "../views/Cl_vPersona.js";
 

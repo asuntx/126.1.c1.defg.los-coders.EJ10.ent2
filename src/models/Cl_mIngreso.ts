@@ -12,7 +12,7 @@ export default class Cl_mIngreso {
     this.contPersona = 0;
     this.ingMenor = 0;
     this.ingMayor = 0;
-    this.auxNombre = ""
+    this.auxNombre = "";
   }
 
   procesarPersona(p: Cl_mPersona): void {
@@ -25,15 +25,15 @@ export default class Cl_mIngreso {
       this.ingMenor = p.ingreso;
     }
     if (p.ingreso > this.ingMayor) {
-      this.ingMayor = p.ingreso
-      this.auxNombre = p.nombre
-  }
-  }
-
-  get nombreMayor() : string {
-    return this.auxNombre
+      this.ingMayor = p.ingreso;
+      this.auxNombre = p.nombre;
+    }
   }
 
+  // nuevo requerimiento sugerido por el profesor Giovanni en Clases
+  get nombreMayor(): string {
+    return this.auxNombre;
+  }
 
   get ingresoPromedio(): number {
     if (this.contPersona > 0) {

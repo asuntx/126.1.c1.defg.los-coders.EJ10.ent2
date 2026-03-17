@@ -1,63 +1,65 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ingresos del Personal</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ingresos del Personal</title>
-</head>
+  <body>
+    <script type="module">
+      import cIngreso from "./dist/controllers/Cl_cIngreso.js";
+      new cIngreso();
+    </script>
 
-<body>
-  <script type="module">
-    import cIngreso from "./dist/controllers/Cl_cIngreso.js";
-    new cIngreso();
-  </script>
-
-  <div id="body">
-    <section id="persona" hidden>
-      <div>
-        <h5 id="persona_lblPersona">Procesar Persona</h5>
-      </div>
-      <div>
-        <label>Nombre:
-          <input type="text" id="persona_inNombre" placeholder="Ej: Ana">
-        </label>
-      </div>
-      <div>
-        <label>Ingreso:
-          <input type="number" id="persona_inIngreso" placeholder="Ej: 100">
-        </label>
-      </div>
-            <div>
-        <label>Cedula:
-          <input type="number" id="persona_inCedula" placeholder="Ej: 32123421">
-        </label>
-      </div>
-      <div>
-        <button id="persona_btCancelar">Cancelar</button>
-        <button id="persona_btAceptar">Aceptar</button>
-      </div>
-    </section>
-    
-    <hr>
-    
-    <div style="margin-bottom: 20px;">
-      <button id="body_btNuevoIngreso">Nueva Persona</button>
-    </div>
-    
-    <div>
-      Ingreso promedio: <span id="body_lblPromedio">0</span>$
-    </div>
-    <div>
-      Monto del ingreso menor: <span id="body_lblMenor">0</span>$
-    </div>
+    <div id="body">
+      <section id="persona" hidden>
         <div>
-      Nombre de la persona con mayor ingreso: <span id="body_lblMayor">0</span>
-    </div>
-    <div>
-      Registros procesados: <span id="body_lblContPersonas">0</span>
-    </div>
-  </div>
-</body>
+          <h5 id="persona_lblPersona">Procesar Persona</h5>
+        </div>
+        <div>
+          <label
+            >Nombre:
+            <input type="text" id="persona_inNombre" placeholder="Ej: Ana" />
+          </label>
+        </div>
+        <div>
+          <label
+            >Ingreso:
+            <input type="number" id="persona_inIngreso" placeholder="Ej: 100" />
+          </label>
+        </div>
+        <div>
+          <label
+            >Cedula:
+            <input
+              type="number"
+              id="persona_inCedula"
+              placeholder="Ej: 32123421"
+            />
+          </label>
+        </div>
+        <div>
+          <button id="persona_btCancelar">Cancelar</button>
+          <button id="persona_btAceptar">Aceptar</button>
+        </div>
+      </section>
 
+      <hr />
+
+      <div style="margin-bottom: 20px">
+        <button id="body_btNuevoIngreso">Nueva Persona</button>
+      </div>
+
+      <div>Ingreso promedio: <span id="body_lblPromedio">0</span>$</div>
+      <div>Monto del ingreso menor: <span id="body_lblMenor">0</span>$</div>
+      <div>
+        Nombre de la persona con mayor ingreso:
+        <span id="body_lblMayor">0</span>
+      </div>
+      <div>
+        Registros procesados: <span id="body_lblRegistrosProcesados">0</span>
+      </div>
+    </div>
+  </body>
 </html>
