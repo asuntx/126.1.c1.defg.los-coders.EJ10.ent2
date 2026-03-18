@@ -1,7 +1,7 @@
 export default class Cl_vPersona {
   inNombre: HTMLInputElement;
   inIngreso: HTMLInputElement;
-  inCedula: HTMLInputElement;
+  inTipo: HTMLInputElement;
   btCancelar: HTMLButtonElement;
   btAceptar: HTMLButtonElement;
   vista: HTMLElement;
@@ -14,9 +14,7 @@ export default class Cl_vPersona {
     this.inIngreso = document.getElementById(
       "persona_inIngreso",
     ) as HTMLInputElement;
-    this.inCedula = document.getElementById(
-      "persona_inCedula",
-    ) as HTMLInputElement;
+    this.inTipo = document.getElementById("persona_inTipo") as HTMLInputElement;
     this.btCancelar = document.getElementById(
       "persona_btCancelar",
     ) as HTMLButtonElement;
@@ -33,9 +31,10 @@ export default class Cl_vPersona {
     return +this.inIngreso.value;
   }
 
-  get cedula(): number {
-    return +this.inCedula.value;
+  get tipo(): number {
+    return +this.inTipo.value;
   }
+
   mostrar(): void {
     if (this.vista === null) return;
     this.vista.hidden = false;

@@ -1,18 +1,22 @@
 export default class Cl_mPersona {
   private _nombre: string = "";
   private _ingreso: number = 0;
-  private _cedula: number = 0 ;
+  private _tipo: number = 0;
 
   constructor(
-    { nombre, ingreso, cedula}: { nombre: string; ingreso: number; cedula: number } = {
+    {
+      nombre,
+      ingreso,
+      tipo,
+    }: { nombre: string; ingreso: number; tipo: number } = {
       nombre: "",
-      ingreso: 0,     
-      cedula: 0,
+      ingreso: 0,
+      tipo: 0,
     },
   ) {
     this.nombre = nombre;
     this.ingreso = ingreso;
-    this.cedula = cedula;
+    this.tipo = tipo;
   }
 
   set nombre(nombre: string) {
@@ -27,10 +31,12 @@ export default class Cl_mPersona {
   get ingreso(): number {
     return this._ingreso;
   }
-  set cedula(cedula : number){
-    this._cedula = +cedula
+
+  set tipo(tipo: number) {
+    this._tipo = tipo;
   }
-  get cedula(): number {
-    return this._cedula;
+
+  get tipo(): number {
+    return this._tipo;
   }
 }

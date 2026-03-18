@@ -6,6 +6,9 @@ export default class Cl_mIngreso {
   private ingMenor: number;
   private ingMayor: number;
   private auxNombre: string;
+  private contIngresosAltos: number;
+  private contRemoto: number;
+  private contPresencial: number;
 
   constructor() {
     this.acIngresos = 0;
@@ -13,6 +16,9 @@ export default class Cl_mIngreso {
     this.ingMenor = 0;
     this.ingMayor = 0;
     this.auxNombre = "";
+    this.contIngresosAltos = 0;
+    this.contRemoto = 0;
+    this.contPresencial = 0;
   }
 
   procesarPersona(p: Cl_mPersona): void {
@@ -28,11 +34,16 @@ export default class Cl_mIngreso {
       this.ingMayor = p.ingreso;
       this.auxNombre = p.nombre;
     }
-  }
 
-  // nuevo requerimiento sugerido por el profesor Giovanni en Clases
-  get nombreMayor(): string {
-    return this.auxNombre;
+    if (p.ingreso > 500) {
+      this.contIngresosAltos++;
+    }
+
+    if (p.tipo === 0) {
+      this.contRemoto++;
+    } else {
+      this.contPresencial++;
+    }
   }
 
   get ingresoPromedio(): number {
@@ -48,5 +59,26 @@ export default class Cl_mIngreso {
 
   get contPersonas(): number {
     return this.contPersona;
+  }
+
+  get nombreMayor(): string {
+    return this.auxNombre;
+  }
+
+  get porcentajeIngAltos(): number {
+    if (this.contPersona > 0) {
+      return (this.contIngresosAltos / this.contPersona) * 100;
+    }
+    return 0;
+  }
+
+  get tipoPredominante(): string {
+    if (this.contRemoto > this.contPresencial) {
+      return "Remoto";
+    } else if (this.contPresencial > this.contRemoto) {
+      return "Presencial";
+    } else {
+      return "Empate";
+    }
   }
 }
