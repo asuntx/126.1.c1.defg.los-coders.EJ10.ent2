@@ -15,7 +15,7 @@
 //   Ingreso promedio: 130$
 //   Nombre de la persona con mayor ingreso: Carlos
 //   Porcentaje de personas con ingresos mayores a $500: 0%
-//   Tipo de trabajo predominante: Empate
+//   Tipo de trabajo predominante: Ambas modalidades de trabajo presentan una equivalencia
 
 import Cl_mPersona from "../models/Cl_mPersona.js";
 import vista from "../views/Cl_vPersona.js";

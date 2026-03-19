@@ -13,7 +13,7 @@ export default class Cl_mIngreso {
   constructor() {
     this.acIngresos = 0;
     this.contPersona = 0;
-    this.ingMenor = 0;
+    this.ingMenor = 999;
     this.ingMayor = 0;
     this.auxNombre = "";
     this.contIngresosAltos = 0;
@@ -25,9 +25,7 @@ export default class Cl_mIngreso {
     this.contPersona++;
     this.acIngresos += p.ingreso;
 
-    if (this.contPersona === 1) {
-      this.ingMenor = p.ingreso;
-    } else if (p.ingreso < this.ingMenor) {
+    if (p.ingreso < this.ingMenor) {
       this.ingMenor = p.ingreso;
     }
     if (p.ingreso > this.ingMayor) {
@@ -78,7 +76,7 @@ export default class Cl_mIngreso {
     } else if (this.contPresencial > this.contRemoto) {
       return "Presencial";
     } else {
-      return "Empate";
+      return "Ambas modalidades de trabajo presentan una equivalencia";
     }
   }
 }
